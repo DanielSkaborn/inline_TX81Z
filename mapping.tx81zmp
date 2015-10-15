@@ -1,0 +1,47 @@
+/dev/snd/midiC1D0
+8
+5
+10 27 1a 0d 00 34 fd fd fd 
+10 1f 1f 1f 1f 07 fd fd fd 
+11 28 1b 0e 01 35 fd fd fd
+11 1f 1f 1f 1f 07 fd fd fd 
+12 29 1c 0f 02 36 fd fd fd 
+12 1f 1f 1f 17 63 fd fd fd 
+13 2a 1d 10 03 37 fd fd fd 
+13 0f 0f 0f 0f 63 fd fd fd 
+14 2b 1e 11 04 38 fd fd fd
+14 0f 0f 0f 0f 63 fd fd fd
+15 2c 1f 12 05 39 fd fd fd
+15 63 63 63 63 63 fd fd fd
+16 2d 20 13 06 3a fd fd fd
+16 03 02 03 03 01 fd fd fd
+17 2e 21 14 07 3b fd fd fd
+17 07 07 07 07 03 fd fd fd
+19 2f 22 15 08 3c fd fd fd
+19 01 01 01 01 48 02 fd fd
+1a 30 23 16 09 3d fd fd fd
+1a 07 07 07 07 01 fd fd fd
+1b 31 24 17 0a 3d fd fd fd
+1b 63 63 63 63 12 fd fd fd
+1c 32 25 18 0b 3e fd fd fd
+1c 3f 3f 3f 3f 01 fd fd fd
+1d 33 26 19 0c 3f fd fd fd
+1d 06 06 06 06 63 fd fd fd
+1e 40 41 42 43 44 fd fd fd
+1e 63 01 01 01 63 fd fd fd
+1f 46 47 48 49 4a fd fd fd
+1f 63 63 63 63 63 fd fd fd
+30 8f 8a 85 80 94 fd fd fd
+30 01 01 01 01 07 fd fd fd
+31 90 8b 86 81 95 fd fd fd
+31 07 07 07 07 63 fd fd fd
+32 91 8c 87 82 96 fd fd fd
+32 0f 0f 0f 0f 63 fd fd fd
+33 92 8d 88 83 fd fd fd fd
+33 07 07 07 07 fd fd fd fd
+34 93 8e 89 84 fd fd fd fd
+34 03 03 03 03 fd fd fd fd
+73 fe fe fe fe fe fe fe fe 
+73 ff ff ff ff ff ff ff ff
+18 ff ff ff ff ff ff ff ff
+18 ff ff ff ff ff ff ff ff
