@@ -33,6 +33,7 @@ int main(void)
 
 	int i, ii, mps, notallset;
 	unsigned char channel = 0;
+	int skip=0;
 	int infilstate = 0;
 
 	unsigned char inbuf;
@@ -46,7 +47,7 @@ int main(void)
 	infil=fopen("mapping.tx81zmp","r");
 
   // reset all mapping
-	
+
 	for (i=0;i<256;i++) {
 		for (ii=0;ii<8;ii++) {
 			mapped[i][ii]=0xfd;
@@ -54,7 +55,7 @@ int main(void)
 		}
 		parameterstatus[i]=0;
 	}
-	
+
 	// parameters not used...
 	for (i=87;i<93;i++)
 		parameterstatus[i]=2;
@@ -62,7 +63,7 @@ int main(void)
 		parameterstatus[i]=2;
 	for (i=0x97;i<256;i++)
 		parameterstatus[i]=2;
-				
+
 	if (infil==NULL) {
 		printf("Could not open mapping file\n");
 		return -1;
@@ -186,6 +187,8 @@ int main(void)
 
 	page=0;
 
+	channel = 11;
+
 	while(1) {
 		i++;
 		x = read(fd, &inbuf, sizeof(inbuf) );
@@ -198,7 +201,6 @@ int main(void)
 					write(wd, &inbuf, sizeof(inbuf));
 				}
 				break;
-				
 			case 1: // got ctrl
 				controller = inbuf;
 				mps=2;
@@ -268,6 +270,8 @@ int main(void)
 					break;
 				}
 				if (mapped[controller][page]!=0xFD) { // Output parameter set sysex
+				    if (skip>50) { skip = 0; break; }
+				    skip++;
 					utbuf=0xF0; // sysex
 					write(wd, &utbuf, sizeof(utbuf));
 					
@@ -291,7 +295,6 @@ int main(void)
 					
 					utbuf=0xF7; // end of sysex
 					write(wd, &utbuf, sizeof(utbuf));
-					
 					printf("[C%02X > P%02X V%02X]\n", controller, mapped[controller][page], parametervalue[mapped[controller][page]]);
 					parameterstatus[mapped[controller][page]]=1;
 				} else {

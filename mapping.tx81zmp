@@ -1,5 +1,5 @@
-/dev/midi1
-8
+/dev/snd/midiC1D0
+12
 5
 49 27 1a 0d 00 34 fd fd fd 
 49 1f 1f 1f 1f 07 fd fd fd 
