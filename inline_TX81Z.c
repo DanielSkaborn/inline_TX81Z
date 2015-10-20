@@ -269,30 +269,29 @@ int main(void)
 					mps=0;
 					break;
 				}
-				if (mapped[controller][page]!=0xFD) { // Output parameter set sysex
+				if (mapped[controller][page]!=0xFD) { // Output parameter as sysex
 				    if (skip>50) { skip = 0; break; }
 				    skip++;
 					utbuf=0xF0; // sysex
 					write(wd, &utbuf, sizeof(utbuf));
-					
+
 					utbuf=0x43; // Yamaha
 					write(wd, &utbuf, sizeof(utbuf));
-					
+
 					utbuf=0x10+channel; // basic channel
 					write(wd, &utbuf, sizeof(utbuf));
-					
 					if (mapped[controller][page] & 0x80) // ACED
 						utbuf=0x13; // ACED (TX81z)
 					else
 						utbuf=0x12; // VCED (DX21 27 100)
  					write(wd, &utbuf, sizeof(utbuf));
- 					
-					utbuf=mapped[controller][page]; // Parameter
+
+					utbuf=(0x7F&mapped[controller][page]); // Parameter (the ACED are stored with bit 0x80 set, need to be cleared)
  					write(wd, &utbuf, sizeof(utbuf));
- 					
+
 					utbuf = parametervalue[mapped[controller][page]] = (unsigned char)( (long)(inbuf) * (long)(mask[controller][page]) / 0x7f); // Data scaled with mask
 					write(wd, &utbuf, sizeof(utbuf));
-					
+
 					utbuf=0xF7; // end of sysex
 					write(wd, &utbuf, sizeof(utbuf));
 					printf("[C%02X > P%02X V%02X]\n", controller, mapped[controller][page], parametervalue[mapped[controller][page]]);
