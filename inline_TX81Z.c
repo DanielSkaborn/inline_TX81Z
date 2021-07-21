@@ -46,8 +46,7 @@ int main(void)
 
 	infil=fopen("mapping.tx81zmp","r");
 
-  // reset all mapping
-
+	// reset all mapping
 	for (i=0;i<256;i++) {
 		for (ii=0;ii<8;ii++) {
 			mapped[i][ii]=0xfd;
